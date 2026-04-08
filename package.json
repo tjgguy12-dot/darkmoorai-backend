@@ -1,0 +1,63 @@
+﻿{
+  "name": "darkmoorai",
+  "version": "1.0.0",
+  "description": "🧠 DarkmoorAI - Intelligence, evolved",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build": "npm run build:frontend && npm run build:backend",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "start": "cd backend && npm run start",
+    "test": "npm run test:frontend && npm run test:backend",
+    "test:frontend": "cd frontend && npm run test",
+    "test:backend": "cd backend && npm run test",
+    "lint": "npm run lint:frontend && npm run lint:backend",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:backend": "cd backend && npm run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\"",
+    "docker:dev": "docker-compose -f infrastructure/docker/docker-compose/docker-compose.yml up",
+    "docker:prod": "docker-compose -f infrastructure/docker/docker-compose/docker-compose.prod.yml up",
+    "db:migrate": "cd backend && python scripts/init_db.py",
+    "db:seed": "cd backend && python scripts/seed_data.py",
+    "backup": "./scripts/backup-db.sh",
+    "clean": "rm -rf node_modules frontend/node_modules backend/__pycache__"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "prettier": "^3.1.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "keywords": [
+    "ai",
+    "chatbot",
+    "deepseek",
+    "wikipedia",
+    "arxiv",
+    "rag",
+    "fastapi",
+    "react"
+  ],
+  "author": "DarkmoorAI",
+  "license": "MIT"
+}

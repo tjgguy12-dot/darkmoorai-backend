@@ -1,0 +1,80 @@
+:root {
+  /* Primary Colors */
+  --primary: #6C5CE7;
+  --primary-light: #8B7DF2;
+  --primary-dark: #4B3DB5;
+  --primary-glow: rgba(108, 92, 231, 0.4);
+  
+  /* Secondary Colors */
+  --secondary: #00B8A9;
+  --secondary-light: #33C9BB;
+  --secondary-dark: #008F82;
+  
+  /* Accent Colors */
+  --accent: #FF6B6B;
+  --accent-light: #FF8E8E;
+  --accent-dark: #E34A4A;
+  
+  /* Status Colors */
+  --success: #6CBF6C;
+  --warning: #FFE66D;
+  --error: #FF4757;
+  --info: #4A90E2;
+  
+  /* Neutral Colors */
+  --dark: #1A1A2E;
+  --darker: #0F0F1A;
+  --light: #F5F5FA;
+  --white: #FFFFFF;
+  --gray: #6C6C7A;
+  --gray-light: #E5E5F0;
+  --gray-dark: #4A4A55;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #6C5CE7 0%, #00B8A9 100%);
+  --gradient-secondary: linear-gradient(135deg, #00B8A9 0%, #6C5CE7 100%);
+  --gradient-dark: linear-gradient(135deg, #1A1A2E 0%, #0F0F1A 100%);
+  --gradient-glow: radial-gradient(circle at 50% 50%, var(--primary-glow) 0%, transparent 70%);
+  
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.2);
+  --shadow-glow: 0 0 20px var(--primary-glow);
+  --shadow-glow-lg: 0 0 40px var(--primary-glow);
+  
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  
+  /* Border Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+  
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Fira Code', 'Courier New', monospace;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
+  --transition-slow: 0.4s ease;
+  
+  /* Z-Index Layers */
+  --z-dropdown: 1000;
+  --z-modal: 2000;
+  --z-toast: 3000;
+  --z-tooltip: 4000;
+}

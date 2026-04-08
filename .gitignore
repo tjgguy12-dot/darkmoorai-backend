@@ -1,0 +1,85 @@
+﻿# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+__pycache__/
+*.pyc
+.env
+.env.local
+.env.production
+.env.development
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+*.egg-info/
+dist/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory
+coverage/
+.nyc_output/
+htmlcov/
+.coverage
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Security
+security/keys/private/
+*.key
+*.pem
+*.crt
+
+# Uploads
+data/uploads/temp/*
+!data/uploads/temp/.gitkeep
+data/uploads/permanent/*
+!data/uploads/permanent/.gitkeep
+
+# Cache
+data/cache/*/*
+!data/cache/*/.gitkeep
+
+# Backups
+data/backups/*/*
+!data/backups/*/.gitkeep
+
+# Vector store
+data/vector_store/*.bin
+data/vector_store/*.json
+
+# Docker
+*.pid
+docker-compose.override.yml
+
+# Python
+venv/
+env/
+ENV/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.mypy_cache/

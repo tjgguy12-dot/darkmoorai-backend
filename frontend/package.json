@@ -1,0 +1,67 @@
+{
+  "name": "darkmoorai-frontend",
+  "version": "1.0.0",
+  "description": "🧠 DarkmoorAI - Intelligence, evolved",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:auto": "vite --port 0",
+    "dev:3000": "vite --port 3000",
+    "dev:5000": "vite --port 5000",
+    "dev:8080": "vite --port 8080",
+    "dev:8888": "vite --port 8888",
+    "dev:9000": "vite --port 9000",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "preview:prod": "vite preview --port 4173",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.0",
+    "axios": "^1.6.2",
+    "socket.io-client": "^4.5.4",
+    "framer-motion": "^10.16.5",
+    "react-hot-toast": "^2.4.1",
+    "clsx": "^2.0.0",
+    "date-fns": "^2.30.0",
+    "react-dropzone": "^14.2.3",
+    "react-intersection-observer": "^9.5.3",
+    "react-markdown": "^9.0.1",
+    "react-syntax-highlighter": "^15.5.0",
+    "@types/react-syntax-highlighter": "^15.5.11"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "postcss": "^8.4.32",
+    "prettier": "^3.1.0",
+    "tailwindcss": "^3.3.6",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.8"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "author": "DarkmoorAI",
+  "license": "MIT",
+  "keywords": [
+    "ai",
+    "chatbot",
+    "deepseek",
+    "wikipedia",
+    "arxiv",
+    "office-suite"
+  ]
+}

@@ -1,0 +1,49 @@
+services:
+  # Web Service - FastAPI Backend
+  - type: web
+    name: darkmoorai-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: ENV
+        value: production
+      - key: DEBUG
+        value: false
+      - key: DEEPSEEK_API_KEY
+        sync: false  # You'll set this manually in Render dashboard
+      - key: JWT_SECRET
+        generateValue: true  # Auto-generate a secure secret
+      - key: DATABASE_URL
+        fromDatabase:
+          name: darkmoorai-db
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          name: darkmoorai-redis
+          type: redis
+          property: connectionString
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: FRONTEND_URL
+        value: https://your-frontend-url.onrender.com
+
+  # Redis Cache Service
+  - type: redis
+    name: darkmoorai-redis
+    plan: free
+    maxmemoryPolicy: noeviction
+
+# PostgreSQL Database
+databases:
+  - name: darkmoorai-db
+    plan: free
+    databaseName: darkmoorai
+    user: darkmoorai_user
