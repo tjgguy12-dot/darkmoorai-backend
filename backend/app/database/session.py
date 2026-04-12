@@ -16,12 +16,17 @@ from app.config import config
 from app.models.database import Base
 from app.utils.logger import logger
 
-# Use environment variable for database URL (Render provides this)
+# Use environment variable for database URL (Render provides this in production)
 DATABASE_URL = os.getenv("DATABASE_URL", config.DATABASE_URL)
 
-# Convert postgres:// to postgresql:// for SQLAlchemy
-if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
-    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+# Convert SQLite sync URL to async URL if needed
+if DATABASE_URL.startswith("sqlite:///"):
+    DATABASE_URL = DATABASE_URL.replace("sqlite:///", "sqlite+aiosqlite:///")
+    logger.info("Using async SQLite driver")
+elif DATABASE_URL.startswith("postgresql://"):
+    # Replace with asyncpg driver for PostgreSQL
+    DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgresql+asyncpg://", 1)
+    logger.info("Using asyncpg driver for PostgreSQL")
 
 # Create engine with production settings
 engine: AsyncEngine = create_async_engine(
@@ -39,7 +44,7 @@ async_session_maker = async_sessionmaker(
 )
 
 async def init_db():
-    """Initialize database connection"""
+    """Initialize database connection and create tables"""
     try:
         async with engine.begin() as conn:
             await conn.run_sync(Base.metadata.create_all)
