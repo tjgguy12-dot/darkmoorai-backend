@@ -19,7 +19,7 @@ from app.utils.logger import logger
 # Use environment variable for database URL (Render provides this in production)
 DATABASE_URL = os.getenv("DATABASE_URL", config.DATABASE_URL)
 
-# Convert SQLite sync URL to async URL if needed
+# Convert to async driver
 if DATABASE_URL.startswith("sqlite:///"):
     DATABASE_URL = DATABASE_URL.replace("sqlite:///", "sqlite+aiosqlite:///")
     logger.info("Using async SQLite driver")
