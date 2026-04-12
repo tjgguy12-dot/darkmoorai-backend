@@ -1,8 +1,9 @@
 """
-DeepSeek API Client - Working Version
+DeepSeek API Client - Working Version with Custom HTTP Client
 """
 
 import openai
+import httpx
 from typing import List, Dict, Any, AsyncGenerator
 import asyncio
 import json
@@ -21,10 +22,17 @@ class DeepSeekClient:
         
         logger.info(f"Initializing DeepSeek client with base URL: {self.base_url}")
         
+        # Create a custom HTTP client without any proxy settings
+        # This avoids the 'proxies' argument conflict
+        self.http_client = httpx.AsyncClient(
+            timeout=60.0,
+            limits=httpx.Limits(max_keepalive_connections=5, max_connections=10)
+        )
+        
         self.client = openai.AsyncOpenAI(
             api_key=self.api_key,
             base_url=self.base_url,
-            timeout=60.0,
+            http_client=self.http_client,
             max_retries=2
         )
     
@@ -102,6 +110,10 @@ class DeepSeekClient:
         except Exception as e:
             logger.error(f"DeepSeek stream error: {e}")
             raise
+    
+    async def close(self):
+        """Close the HTTP client"""
+        await self.http_client.aclose()
 
 
 # Create global instance
